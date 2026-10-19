@@ -1,5 +1,6 @@
 import streamlit as st
 import json, os, time, datetime, requests
+from rag_retriever import RegulationRetriever, build_prompt
 
 def _load_api_key():
     """优先从 Streamlit Secrets 读取（部署用），其次读环境变量，最后回退空值。
@@ -56,17 +57,17 @@ def extract_highlights(product_name, description, category):
 
 MARKET_RISK = {"US":1,"UK":1,"DE":3,"FR":3,"JP":3}
 CATEGORY_RISK = {"home":1,"electronics":3,"beauty":2,"baby":3,"food":3}
-VIOLATION_RECORDS = {}
 
 def classify_risk(market, category):
-    s = MARKET_RISK.get(market,2) + CATEGORY_RISK.get(category,2) + VIOLATION_RECORDS.get(f"{market}_{category}",0)*2
+    s = MARKET_RISK.get(market,2) + CATEGORY_RISK.get(category,2) + st.session_state['violation_records'].get(f"{market}_{category}",0)*2
     if s >= 5: level, action = "高", "暂停输出，人工全审"
     elif s >= 3: level, action = "中", "异步复核（抽检20%）"
     else: level, action = "低", "直接通过（0审核）"
     return {"level": level, "action": action, "score": s}
 
 def record_violation(market, category):
-    VIOLATION_RECORDS[f"{market}_{category}"] = VIOLATION_RECORDS.get(f"{market}_{category}",0) + 1
+    vr = st.session_state['violation_records']
+    vr[f"{market}_{category}"] = vr.get(f"{market}_{category}",0) + 1
 
 class CircuitBreaker:
     def __init__(self):
@@ -88,10 +89,17 @@ class CircuitBreaker:
     def reset(self):
         self.status='closed'; self.failures=0; self.consecutive_failures=0; self.last_failure_time=None; self.total_requests=0; self.total_failures=0
 
-breaker = CircuitBreaker()
 st.set_page_config(page_title="跨境Listing助手", page_icon="🌍", layout="wide")
 
-option = st.sidebar.radio("功能", ["📝 Listing生成","🇯🇵 日本法规监控","📊 风控面板"])
+# Streamlit 每次交互都会重跑整个脚本，模块级变量会被重建。
+# 风险违规记录与熔断器必须挂在 session_state 上，否则跨次交互的状态会丢失（面板恒为 0）。
+if 'violation_records' not in st.session_state:
+    st.session_state['violation_records'] = {}
+if 'breaker' not in st.session_state:
+    st.session_state['breaker'] = CircuitBreaker()
+breaker = st.session_state['breaker']
+
+option = st.sidebar.radio("功能", ["📝 Listing生成","🔍 法规查询（RAG）","📊 风控面板"])
 
 if option=="📝 Listing生成":
     st.title("🌍 跨境Listing智能生成系统")
@@ -153,5 +161,47 @@ elif option=="📊 风控面板":
         vm=st.selectbox("违规市场",["US","UK","DE","JP"],key="vm"); vc=st.selectbox("违规品类",["home","electronics","beauty","baby"],key="vc")
         if st.button("记录违规"): record_violation(vm,vc); st.success("已记录")
 else:
-    st.title("🇯🇵 日本法规监控"); st.info("开发中...")
+    st.title("🔍 跨境法规查询（RAG）")
+    st.caption("基于本地法规语料的检索式问答 · 当前语料条数见侧栏")
+    with st.sidebar:
+        st.subheader("🌍 法规检索设置")
+        mkt = st.selectbox("目标市场",["JP","DE","FR","US","UK"], index=0, key="rag_mkt")
+        cat = st.selectbox("品类",["ALL","electronics","beauty","baby","food","home"], index=0, key="rag_cat")
+    @st.cache_resource
+    def _get_retriever():
+        return RegulationRetriever()
+    retriever = _get_retriever()
+    q = st.text_area("合规问题（例：日本销售的充电器需要什么认证？）", height=80, key="rag_q")
+    if st.button("🔎 检索 + 回答", type="primary"):
+        if not q.strip():
+            st.warning("请先输入问题")
+        elif not retriever.docs:
+            st.error("语料为空。请先在 regulations/ 目录放入法规条目（见 regulations/法规收集手册.md）")
+        else:
+            hits = retriever.retrieve(q.strip(), market=mkt, category=cat, top_k=3)
+            st.subheader("📚 命中条款（按相关度排序）")
+            if not hits:
+                st.info("未命中。可在语料中补充该市场/品类的条款。")
+            else:
+                for i, h in enumerate(hits, 1):
+                    badge = "✅已核实" if h.get('verified') else "⚠️待核实"
+                    with st.expander(f"[{i}] {badge} · {h['id']} · 相关度 {h['score']} · {h['title']}"):
+                        st.write(h['text'])
+                        st.caption(f"出处：{h['source']}")
+                        if not h.get('verified'):
+                            st.warning("本条尚未与官方原文核对，仅供检索定位，请勿直接作为合规依据。")
+            if hits and API_KEY:
+                with st.spinner("基于命中条款生成回答..."):
+                    try:
+                        prompt = build_prompt(q.strip(), hits, product_name="", market=mkt, category=cat)
+                        headers = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
+                        payload = {"model": MODEL_NAME, "messages": [{"role":"user","content":prompt}], "temperature": 0.2}
+                        resp = requests.post(f"{API_BASE_URL}/chat/completions", json=payload, headers=headers, timeout=20)
+                        resp.raise_for_status()
+                        st.subheader("💡 回答")
+                        st.markdown(resp.json()["choices"][0]["message"]["content"].strip())
+                    except Exception as e:
+                        st.error(f"生成失败：{e}")
+            elif hits and not API_KEY:
+                st.info("检测到命中条款，但未配置 API Key，请先在「Listing生成」侧栏填入。")
 

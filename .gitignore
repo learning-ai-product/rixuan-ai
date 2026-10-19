@@ -4,3 +4,5 @@ __pycache__/
 .env
 .streamlit/secrets.toml
 highlight_cache.json
+app.py.bak
+regulations/*.bak

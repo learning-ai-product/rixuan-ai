@@ -1,0 +1,41 @@
+﻿id,market,category,lang,title,text,source,verified,note
+JP-PSE-001,JP,electronics,zh,PSE 标志：菱形（特定）与圆形（一般）品目区分,日本对电气用品实行PSE制度。特定电气用品（116品目，如充电器、电饭煲）须加贴菱形PSE标志并由第三方认证机构检查；一般电气用品（341品目）加贴圆形PSE标志。未取得标志不得在日本销售。,https://www.meti.go.jp/policy/consumer/seian/denan/file/06_guide/denan_guide_ver600.pdf,是,✅ METI《電気用品安全法法令業務実施手引書》Ver6.0.0 原文：「電気用品は、現在457品目指定されており…特定電気用品が116品目」+「457品目から116品目を除いた341品目」
+JP-PSE-002,JP,electronics,zh,届出義務：事业开始后 30 日内申报,制造或进口PSE监管电气用品的企业，须在事业开始之日起30日内，向经济产业大臣（或管辖经济产业局）提交事业届出。事业承继、内容变更、废止时同样须届出。未办理届出即开展业务的，属于违法。,https://www.meti.go.jp/policy/consumer/seian/denan/procedure_03.html,否,✅ 已修正：原写「须在开工前提交届出」→ 官方为「事業開始の日から30日以内」（开工后30日内），已改
+JP-PSE-003,JP,electronics,zh,技術基準適合：自行确认并保存记录 3 年,电气用品须符合日本规定的技术标准（技術基準）。制造商须自行确认产品符合技术要求并保留确认记录3年；未进行确认或记录不完整的，视为违规。,https://www.kanto.meti.go.jp/seisaku/seihin_anzen/yusnyugyosha.html,是,✅ 経産省関東局：「検査記録は検査を行った日から3年間保存」（法第8条第2項、施行規則第11条第3項）
+JP-PSE-004,JP,electronics,zh,PSE 标志标注内容：事業者名、检查机关、规格,PSE标志须标注届出事業者名（企业正式名称）、登记检查机关名称（特定电气用品）、定格电压电流等规格。标志信息不全或伪造的，不得销售。,https://www.meti.go.jp/policy/consumer/seian/denan/,否,
+JP-PSE-005,JP,electronics,zh,标注主体限制：非届出事業者不得标注 PSE,非届出事業者（普通经销商）不得自行标注PSE标志。只有完成届出手续的制造/进口商才能标注，普通经销商销售未标注PSE标志的产品属违法。,https://www.meti.go.jp/policy/consumer/seian/denan/,否,
+JP-PSE-006,JP,electronics,zh,销售禁止：无 PSE 标志商品不得销售（第27条）,销售未依法标注PSE标志的电气用品将被禁止销售（法第27条）。已销售的需召回或停止销售，违者可能面临罚款等罚则。,https://www.chubu.meti.go.jp/c23product_safety/electrical_products/guidebooks/electrical_products_guidebook_english_ver2.pdf,是,✅ METI 英文実施手引書：「Restrictions on sale (Article 27 of the Act)」—— 无 PSE 标志禁止销售 = 法第27条
+JP-PSE-007,JP,electronics,zh,第三方认证：特定电气用品须登记机构评定,特定电气用品须经经济产业大臣登记的符合性评估机构进行第三方认证。未经第三方认证即标注菱形PSE标志的，属于虚假标注，面临法律处罚。,https://www.meti.go.jp/policy/consumer/seian/denan/,否,
+JP-PSE-008,JP,electronics,zh,最终检查：出货前合格检查义务,电气用品出货前须进行最终合格检查并保留记录。未进行检查或检查不合格仍出货的，违反技術基準適合義務，可能被责令整改或处罚。,https://www.meti.go.jp/policy/consumer/seian/denan/,否,
+JP-PSE-009,JP,electronics,zh,监管检查：经济产业省调查权与罚则,经济产业省有权对PSE合规情况进行调查和检查。企业拒绝提供资料或提供虚假资料的，可能面临行政处分。,https://www.meti.go.jp/policy/consumer/seian/denan/,否,
+JP-PSE-010,JP,electronics,zh,监管范围：457 品目正面列表（編入方式）,PSE制度覆盖政令指定的457个品目（ポジティブリスト方式）。不在指定品目范围内的产品不受PSE制度约束，但擅自标注PSE标志也属违法。,https://www.meti.go.jp/policy/consumer/seian/denan/,否,含具体数字/期限，建议二次核对
+JP-CAA-001,JP,ALL,zh,优良误认表示（第5条第1号）：品质性能须与实际相符,商品或服务的品质、规格等内容与实际严重不符，使消费者误认为优于实际的，构成优良误认表示。例如将人造钻石标为天然钻石销售，违反景品表示法第5条第1号。,https://www.caa.go.jp/policies/policy/representation/,是,✅ 景品表示法第5条第1号＝優良誤認表示（品质/规格优于实际或优于竞品）
+JP-CAA-002,JP,ALL,zh,有利误认表示（第5条第2号）：价格与优惠须真实,商品价格或其他交易条件标注虚假优惠信息，使消费者误认为比实际更优惠或比竞争对手更便宜的，构成有利误认表示。例如虚构原价打折，违反景品表示法第5条第2号。,https://www.caa.go.jp/policies/policy/representation/,是,✅ 景品表示法第5条第2号＝有利誤認表示（价格/交易条件比实际或比竞品更有利）
+JP-CAA-003,JP,ALL,zh,ステルスマーケティング：隐性付费推广（2023-10-01 施行）,自2023年10月1日起，隐藏商业推广性质的营销内容（ステルスマーケティング）被明确禁止。以普通消费者身份发布付费推广内容而不标明”广告”的，属于景品表示法违反。,https://www.caa.go.jp/policies/policy/representation/,是,✅ 已核实：ステルスマーケティング規制 2023-10-01 施行（原文档误写 2025-10-01，已修正）
+JP-CAA-004,JP,home,zh,家庭用品品质表示法：成分与性能标注义务,家庭用品（纺织品、合成树脂加工品、电器、杂货工业品等）须按品质表示标准标注成分、性能等信息。未标注或虚假标注纤维含有率的，违反家庭用品品质表示法。,https://www.caa.go.jp/policies/policy/representation/,否,
+JP-CAA-005,JP,ALL,zh,纺织品混用率表示：全体表示/分離表示与许容范围,纺织品须按整体表示或分离表示方式标注纤维混用率。混用率超出许容范围（如100%实际为97%且未标注”毛”）的，属于不当表示。,https://www.caa.go.jp/policies/policy/representation/,否,
+JP-CAA-006,JP,food,zh,健康增进法：普通食品不得宣称医疗功效,健康增进法禁止对食品进行夸大医疗效果的宣传。普通食品宣称”治疗癌症”“治愈糖尿病”等医疗功效的，属于夸大表示禁止事项。,https://www.caa.go.jp/policies/policy/representation/,否,
+JP-CAA-007,JP,food,zh,食品表示基準：原料产地与过敏原义务表示,食品关系事业者须按食品表示基準对一般用加工食品进行横断义务表示和个别义务表示。未按规定标注原料产地、过敏原信息或营养成分的，违反表示基准。,https://www.caa.go.jp/policies/policy/representation/,否,
+JP-CAA-008,JP,ALL,zh,景表法：优良误认的具体适用场景,景品·赠品金额须受限制，过大的赠品诱导被视为不当引诱消费者。超过规定上限提供景品的，违反景品表示法的景品类规制。,https://www.caa.go.jp/policies/policy/representation/,否,
+JP-CAA-009,JP,ALL,zh,景表法：有利误认的比较与限定条件,事業者须建立内部表示管理体制，定期自查表示内容的适当性。因过失导致不当表示即使非故意也构成违法，须建立防止再发的措施。,https://www.caa.go.jp/policies/policy/representation/,否,
+JP-CAA-010,JP,ALL,zh,景表法：一般消费者误认的判定基准,消费者厅和经济产业省有权对违反表示法规的企业发出指示、公告违法事实甚至处以课徴金纳付命令。企业须配合调查并提供真实资料。,https://www.caa.go.jp/policies/policy/representation/,否,
+EU-GPSR-001,DE,ALL,zh,GPSR (EU) 2023/988：上市安全义务与召回程序,根据GPSR法规(EU)2023/988，所有投放欧盟市场的消费品（含二手、翻新产品及数字产品）必须安全。投放存在不合理风险产品的企业，须立即召回并通知监管机构，违者面临市场禁入。,https://eur-lex.europa.eu/,否,
+EU-GPSR-002,DE,ALL,zh,GPSR：可追溯信息与生产者标识要求,GPSR要求制造商在投放市场前进行内部风险评估并编制技术文件，保存10年。未编制技术文件或无法向监管机构提供的，产品不得上市。,https://eur-lex.europa.eu/,否,含具体数字/期限，建议二次核对
+EU-GPSR-003,DE,ALL,zh,GPSR：欧盟境内负责人（Responsible Person）指定,非欧盟制造商须在欧盟境内指定负责任的经济运营商（授权代表/进口商），并在产品上标注其联系方式。未指定欧盟责任人的产品禁止进入欧盟市场。,https://eur-lex.europa.eu/eli/reg/2023/988/oj,是,✅ GPSR (EU) 2023/988 Article 16(1)：非欧盟制造商须指定欧盟境内经济运营者；适用日 2024-12-13
+EU-GPSR-004,DE,ALL,zh,GPSR：安全信息、警示与使用说明的提供,进口商须核实制造商已完成合规评估和技术文件编制，确保产品带CE标志及可追溯信息。进口不符合要求的产品即投放市场的，承担与制造商同等的法律责任。,https://eur-lex.europa.eu/,否,
+EU-GPSR-005,DE,ALL,zh,GPSR：线上销售与远程销售的信息披露,分销商须确保产品标签、追溯信息准确，安全说明使用当地消费者易懂语言。发现不安全产品未及时报告的，可能被要求下架并处罚。,https://eur-lex.europa.eu/,否,
+EU-GPSR-006,DE,ALL,zh,GPSR：产品符合性评估与技术文档,在线市场平台须确保卖家展示产品安全性和可追溯信息，建立产品安全内部机制。未及时处理危险产品通知或在3个工作日内处理投诉的，面临平台处罚。,https://eur-lex.europa.eu/,否,含具体数字/期限，建议二次核对
+EU-GPSR-007,DE,ALL,zh,GDPR：数据处理同意与主体权利响应,根据GDPR，处理欧盟居民个人数据须获得明确同意，提供隐私政策，响应数据访问/删除请求。未获同意收集数据或在30日内未响应数据主体请求的，最高可罚2000万欧元或全球营业额4%。,https://eur-lex.europa.eu/,否,含具体数字/期限，建议二次核对
+EU-GPSR-008,DE,ALL,zh,GDPR：罚款上限（2000万欧元或4% 营业额）,根据REACH法规，在欧盟年进口/制造1吨以上化学物质的企业须向ECHA注册。未注册即投放市场的化学物质，及相关含该物质的产品均禁止销售。,https://gdpr-info.eu/art-83-gdpr,是,"✅ GDPR Article 83(5)：最高 20,000,000 EUR 或前一财年全球年营业额 4%，取较高者"
+EU-GPSR-009,DE,ALL,zh,GDPR：跨境数据传输与合规例外,REACH要求供应链中传递化学品安全数据表(SDS)，向消费者免费提供含SVHC(高度关注物质)超过0.1%的产品安全使用信息。45天内未回复消费者查询的，属于违法。,https://eur-lex.europa.eu/,否,含具体数字/期限，建议二次核对
+EU-GPSR-010,DE,ALL,zh,GDPR：泄露通知义务与时限,根据GDPR，在线平台被认定为个人数据共同控制者，须在广告发布前识别敏感数据并核验发布者身份。未履行事前审查义务且不能援引中介责任豁免的，承担数据保护法律责任。,https://eur-lex.europa.eu/,否,
+EU-CE-001,DE,electronics,zh,CE 标志适用范围与自我声明流程,CE标志表明产品已通过合格评定并符合欧盟安全、健康和环保要求。在非必要加贴CE标志的产品上擅自标注CE标志的，属于违法行为，产品可能被海关扣留或下架。,https://single-market-economy.ec.europa.eu/single-market/ce-marking_en,否,
+EU-CE-002,DE,electronics,zh,CE 公告协调标准（Harmonised Standards）与符合性推定,制造商须对自身产品进行合格评定（约90%产品可自我认证），编制技术文件，出具欧盟符合性声明(EU Declaration of Conformity)。未完成合格评定即标注CE标志的，不得在EEA市场销售。,https://single-market-economy.ec.europa.eu/single-market/ce-marking_en,否,
+EU-CE-003,DE,electronics,zh,公告机构（Notified Body）介入的第三方认证,高风险产品（如医疗器械、无线电设备等）须经欧盟公告机构(Notified Body)进行第三方合格评定。未经公告机构评估即标注CE标志的，属于严重违规。,https://single-market-economy.ec.europa.eu/single-market/ce-marking_en,否,
+EU-CE-004,DE,electronics,zh,技术文件（Technical File）必备内容与保存期限,进口商须核实制造商已完成合格评定和技术文件编制，确保产品带有CE标志及所有必要文件。进口无CE标志或文件不全的产品即投放市场的，承担合规责任。,https://single-market-economy.ec.europa.eu/single-market/ce-marking_en,否,
+EU-CE-005,DE,electronics,zh,DoC 符合性声明的签署与内容要求,分销商须检查产品是否带有CE标志及相关文件齐全，确认产品符合适用指令要求。发现产品不合规仍销售的，违反分销商义务。,https://single-market-economy.ec.europa.eu/single-market/ce-marking_en,否,
+EU-CE-006,DE,electronics,zh,CE 标志格式规范：变形即无效,CE标志须按规定的格式和尺寸标注。擅自改变CE标志比例、形状或添加额外标记使其变形的，标志无效，产品不得上市。,https://single-market-economy.ec.europa.eu/single-market/ce-marking_en,否,
+EU-CE-007,DE,electronics,zh,上市后监督：投诉收集、纠正措施与 10 年保存,产品投放市场后，制造商须建立上市后监督机制，收集投诉并调查安全问题。发现产品存在危险须立即采取纠正措施（召回/下架）并通知监管机构，技术文件须保存10年。,https://eur-lex.europa.eu/eli/reg/2023/988/oj,是,✅ GPSR Article 9(3)：技术文件须在市场监督机构可调取下保存 10 年（自产品上市日起）
+EU-CE-008,DE,electronics,zh,监管配合义务与法律责任,经济运营商须与市场监督机构合作，提供产品信息和合规文件。拒绝配合调查或提供虚假信息的，面临产品禁售、罚款甚至刑事责任。,https://single-market-economy.ec.europa.eu/single-market/ce-marking_en,否,
+EU-CE-009,DE,electronics,zh,海关查验与通关合规证明,海关有权要求进口商提供CE认证文件证明产品合规。无法提供合规记录的进口货物将被拒绝通关，已通关但后续无法提供文件的将面临强制召回和巨额罚款。,https://single-market-economy.ec.europa.eu/single-market/ce-marking_en,否,
+EU-CE-010,DE,electronics,zh,EEA 市场准入：禁售范围与成员国执法权,不符合CE标志要求的产品不得在EEA（欧盟+冰岛、列支敦士登、挪威、安道尔）市场销售。各成员国可对本国市场上发现的不合规产品采取召回、下架、罚款等措施。,https://single-market-economy.ec.europa.eu/single-market/ce-marking_en,否,
